@@ -7,12 +7,17 @@
 #include <ctime>
 #include <cstdlib>
 #include "dictionary.h"
+#include "grid.h"
 
 int main() {
     Dictionary dict;
 
-    dict.readFile();
-    dict.printVector();
+    // dict.readFile();
+    // dict.selectionSort();
+    // dict.printVector();
+
+    Grid grid;
+    grid.readFile("input15");
 
     return 0;
 }

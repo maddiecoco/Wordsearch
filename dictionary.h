@@ -5,7 +5,7 @@
 #define DICTIONARY_H
 
 #include <iostream>
-#include <cstdlib>
+#include <stdlib.h>
 #include <string>
 #include <vector> 
 
