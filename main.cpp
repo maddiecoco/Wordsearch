@@ -16,8 +16,8 @@ int main() {
     // dict.selectionSort();
     // dict.printVector();
 
-    Grid grid;
-    grid.readFile("input15");
+    Grid grid("input15");
+    grid.printGrid();
 
     return 0;
 }

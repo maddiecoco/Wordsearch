@@ -1,36 +1,39 @@
-#include "grid.h"
-#include <fstream>
-
-void Grid::readFile(string fileName)
+ #include "grid.h"
+ 
+Grid::Grid(const string& fileName)
 {
-    // Read file and add letters to a matrix
-    string temp;
-    ifstream infile;
-    infile.open(fileName); // Put path of file in quotes
+    std::ifstream infile(fileName);
 
-    if(!infile)
+    if (!infile.is_open()) 
     {
-        cerr << "Couldn't open file, check path" << endl;
+        cerr << "Error opening file: " << fileName << std::endl;
+        return;
     }
 
+    // Read rows and columns from the file
     infile >> rows >> cols;
-    char curr;
 
-    Matrix newMatrix(rows, cols);
+    // Resize the matrix accordingly
+    matrix.resize(rows, std::vector<char>(cols));
 
-    for (int i = 0; i < rows; i++)
-    {
-        for (int j = 0; j < cols; j++)
-        {
-            infile >> curr;
-            newMatrix.setElement(i, j, curr);
+    // Read letters into the matrix
+    for (int i = 0; i < rows; ++i) {
+        for (int j = 0; j < cols; ++j) {
+            infile >> matrix[i][j];
         }
-    }    
+    }
 
-    matrix = newMatrix;
+    infile.close();
 }
 
-void resize(int newRows, int newCols) {
-        // Create a new matrix with the desired size
-        Matrix newMatrix(newRows, newCols);
+void Grid::printGrid() const {
+    for (int i = 0; i < rows; ++i) 
+    {
+        for (int j = 0; j < cols; ++j) 
+        {
+            cout << matrix[i][j] << " ";
+        }
+        cout << endl;
+    }
 }
+

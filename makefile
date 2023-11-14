@@ -5,8 +5,8 @@ CXX = g++
 CXXFLAGS = -std=c++11
 
 # Define the source and header files
-SRCS = main.cpp dictionary.cpp
-HEADERS = dictionary.h
+SRCS = main.cpp dictionary.cpp grid.cpp
+HEADERS = dictionary.h grid.h
 
 # Define the target executable
 TARGET = main
