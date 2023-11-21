@@ -6,6 +6,7 @@ void Dictionary::readFile()
      // Read file and add words line by line to 'words' vector
     string temp;
     ifstream infile;
+     
     infile.open("Dictionary"); // Put path of file in quotes
     if(!infile)
     {
@@ -40,6 +41,42 @@ void Dictionary::selectionSort()
         }
         swap(words[i], words[min]);
     }
+}
+
+void Dictionary::quickSort(int low, int high)
+{
+    // Sort word vector using quick sort
+    int pivotIndex = 0;
+    if (low < high) {
+        pivotIndex = partition(low, high);
+        quickSort(low, pivotIndex - 1);
+        quickSort(pivotIndex + 1, high);
+    }
+}
+
+int Dictionary::partition(int low, int high) {
+    string pivot = words[low];
+    int left = low + 1;
+    int right = high;
+
+    while (true) {
+        while (left <= right && words[left] < pivot) {
+            left++;
+        }
+
+        while (left <= right && words[right] > pivot) {
+            right--;
+        }
+
+        if (left <= right) {
+            swap(words[left], words[right]);
+        } else {
+            break;
+        }
+    }
+
+    swap(words[low], words[right]);
+    return right;
 }
 
 int Dictionary::getSize()

@@ -110,7 +110,7 @@ void findMatches(Dictionary& dict, Grid& grid)
                 }
                 //If we are at the edge wrap, else iterate
                 if (col == grid.getCols() - 1) {
-                    col == 0;
+                    col = 0;
                 } else {
                     col++;
                 }
@@ -228,11 +228,11 @@ int main() {
     Dictionary dict;
 
     dict.readFile();
-    dict.selectionSort();
+    dict.quickSort(0, dict.getSize() - 1);
     dict.printVector();
 
-    Grid grid("input30");
-    
+    Grid grid("input15");
+    // grid.printGrid();
     findMatches(dict, grid);
 
     return 0;

@@ -3,8 +3,8 @@
 Grid::Grid(const string& fileName)
 {
     std::ifstream infile(fileName);
-
-    if (!infile.is_open()) 
+    
+    if (!infile.is_open())
     {
         cerr << "Error opening file: " << fileName << std::endl;
         return;

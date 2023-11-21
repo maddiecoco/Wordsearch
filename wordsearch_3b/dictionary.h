@@ -19,6 +19,8 @@ public:
     void readFile();
     void printVector();
     void selectionSort();
+    void quickSort(int low, int high);
+    int partition(int low, int high);
     bool lookupWord(string target);
     int getSize();
 private:
