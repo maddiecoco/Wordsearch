@@ -20,6 +20,7 @@ public:
     void printVector();
     void selectionSort();
     bool lookupWord(string target);
+    int getSize();
 private:
     vector<string> words;
 };

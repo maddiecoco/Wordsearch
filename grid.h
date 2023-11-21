@@ -18,11 +18,14 @@ public:
 
     // Function to print the grid
     void printGrid() const;
+    vector<vector<char>> getMatrix();
+    int getRows();
+    int getCols();
 
 private:
     int rows;
     int cols;
-    std::vector<std::vector<char>> matrix;
+    vector<vector<char>> matrix;
 };
 
 

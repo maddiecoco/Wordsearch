@@ -37,3 +37,18 @@ void Grid::printGrid() const {
     }
 }
 
+vector<vector<char>> Grid::getMatrix()
+{
+    return matrix;
+}
+
+int Grid::getRows()
+{
+    return rows;
+}
+
+int Grid::getCols()
+{
+    return cols;
+}
+

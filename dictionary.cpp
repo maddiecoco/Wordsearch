@@ -42,6 +42,11 @@ void Dictionary::selectionSort()
     }
 }
 
+int Dictionary::getSize()
+{
+    return words.size();
+}
+
 bool Dictionary::lookupWord(string target)
 // Look for target word in alphabetical list using binary search method
 {
