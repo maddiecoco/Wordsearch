@@ -40,8 +40,7 @@ void Grid::printGrid() const {
 }
 
 vector<vector<char>> Grid::getMatrix()
-{
-    // Returns the 
+{ 
     return matrix;
 }
 
