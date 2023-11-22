@@ -13,53 +13,53 @@
 
 void findMatches(Dictionary& dict, Grid& grid)
 {
-    //Declare Variables
-    int maxLength = 15, minLength = 4; //Max and min lengths of words
+    // Max and min lengths of words
+    int maxLength = 15, minLength = 4; 
     int l, row, col;
     string word;
     vector<vector<char>> matrix = grid.getMatrix();
 
-    //For each element in the grid
+    //Iterate through each element in the grid
     for (int r = 0; r < grid.getRows(); r++) {
         for (int c = 0; c < grid.getCols(); c++) {
 
-            //Search the North Direction
-            row = r, col = c; //Set row and col to current row and col
-            word = ""; //Clear out the word
+            // Search directly up
+            // Set row and col to current row and col
+            row = r, col = c;
+            //Initialize word to be empty
+            word = ""; 
             //Add up to the maxLength of characters
             for (l = 0; l <= maxLength; l++) {
-                //Add on the current character
-                word += matrix[row][col];
-                //If the word length is greater or equal to the min length 
+                word += matrix[row][col];   
                 if (word.length() >= minLength) { 
                     //Look up the word and if it exists, print it out
                     if (dict.lookupWord(word)) {
                         cout << word << endl;
                     }
                 }
-                //If we are at the edge wrap, else iterate
+                //Iterate until at the edge, then wrap
                 if (col == 0) {
                     col = grid.getCols() - 1;
                 } else {
                     col--;
                 }
-            } //End North
+            } 
+            //End searching up
 
-            //Search the Northeast Direction
-            row = r, col = c; //Set row and col to current row and col
-            word = ""; //Clear out the word
-                       //Add up to the maxLength of characters
+            //Search up and right (diagonal)
+            row = r, col = c;
+            //Initialize word to be empty
+            word = "";
             for (l = 0; l <= maxLength; l++) {
                 //Add on the current character
                 word += matrix[row] [col];
-                //If the word length is greater or equal to the min length 
+                //Look up the word and if it exists, print it out
                 if (word.length() >= minLength) {
-                    //Look up the word and if it exists, print it out
                     if (dict.lookupWord(word)) {
                         cout << word << endl;
                     }
                 }
-                //If we are at the edge wrap, else iterate
+                //Iterate until at the edge, then wrap
                 if (col == 0) {
                     col = grid.getCols() - 1;
                 } else {
@@ -70,45 +70,43 @@ void findMatches(Dictionary& dict, Grid& grid)
                 } else {
                     row++;
                 }
-            } //End Northeast
+            }
+            //End search up and right
 
-            //Search the East Direction
-            row = r, col = c; //Set row and col to current row and col
-            word = ""; //Clear out the word
-                       //Add up to the maxLength of characters
+            //Search to the right
+            row = r, col = c; 
+            //Initialize word to be empty
+            word = ""; 
             for (l = 0; l <= maxLength; l++) {
-                //Add on the current character
                 word += matrix[row][col];
-                //If the word length is greater or equal to the min length 
+                //Look up the word and if it exists, print it out
                 if (word.length() >= minLength) {
-                    //Look up the word and if it exists, print it out
                     if (dict.lookupWord(word)) {
                         cout << word << endl;
                     }
                 }
-                //If we are at the edge wrap, else iterate
+                //Iterate until at the edge, then wrap
                 if (row == grid.getRows() - 1) {
                     row = 0;
                 } else {
                     row++;
                 }
-            } //End East
+            } 
+            //End search to the right
 
-            //Search the Southeast Direction
-            row = r, col = c; //Set row and col to current row and col
-            word = ""; //Clear out the word
-                       //Add up to the maxLength of characters
+            //Search down and right (diagonal)
+            row = r, col = c;
+            word = "";
             for (l = 0; l <= maxLength; l++) {
-                //Add on the current character
                 word += matrix[row][col];
-                //If the word length is greater or equal to the min length 
+
+                //Look up the word and if it exists, print it out
                 if (word.length() >= minLength) {
-                    //Look up the word and if it exists, print it out
                     if (dict.lookupWord(word)) {
                         cout << word << endl;
                     }
                 }
-                //If we are at the edge wrap, else iterate
+                //Iterate until at the edge, then wrap
                 if (col == grid.getCols() - 1) {
                     col = 0;
                 } else {
@@ -119,45 +117,43 @@ void findMatches(Dictionary& dict, Grid& grid)
                 } else {
                     row++;
                 }
-            } //End Southeast
+            } //End search down and right
 
-            //Search the South Direction
-            row = r, col = c; //Set row and col to current row and col
-            word = ""; //Clear out the word
-                       //Add up to the maxLength of characters
-            for (l = 0; l <= maxLength; l++) {
-                //Add on the current character
+            //Search directly down
+            row = r, col = c;
+            word = "";
+
+            for (l = 0; l <= maxLength; l++) 
+            {
                 word += matrix[row][col];
-                //If the word length is greater or equal to the min length 
+
+                //Look up the word and if it exists, print it out
                 if (word.length() >= minLength) {
-                    //Look up the word and if it exists, print it out
                     if (dict.lookupWord(word)) {
                         cout << word << endl;
                     }
                 }
-                //If we are at the edge wrap, else iterate
+                //Iterate until at the edge, then wrap
                 if (col == grid.getCols() - 1) {
                     col = 0;
                 } else {
                     col++;
                 }
-            } //End South
+            } //End search down
 
-            //Search the Southwest Direction
-            row = r, col = c; //Set row and col to current row and col
-            word = ""; //Clear out the word
-                       //Add up to the maxLength of characters
+            //Search down and left (diagonal)
+            row = r, col = c; 
+            word = "";
             for (l = 0; l <= maxLength; l++) {
-                //Add on the current character
                 word += matrix[row][col];
-                //If the word length is greater or equal to the min length 
+                
+                //Look up the word and if it exists, print it out
                 if (word.length() >= minLength) {
-                    //Look up the word and if it exists, print it out
                     if (dict.lookupWord(word)) {
                         cout << word << endl;
                     }
                 }
-                //If we are at the edge wrap, else iterate
+                //Iterate until at the edge, then wrap
                 if (col == grid.getCols() - 1) {
                     col = 0;
                 } else {
@@ -168,45 +164,43 @@ void findMatches(Dictionary& dict, Grid& grid)
                 } else {
                     row--;
                 }
-            } //End Southwest
+            } //End search down and left
 
-            //Search the West Direction
-            row = r, col = c; //Set row and col to current row and col
-            word = ""; //Clear out the word
-                       //Add up to the maxLength of characters
+            //Search to the left
+            row = r, col = c; 
+            word = "";
+
             for (l = 0; l <= maxLength; l++) {
-                //Add on the current character
                 word += matrix[row][col];
-                //If the word length is greater or equal to the min length 
+
+                //Look up the word and if it exists, print it out
                 if (word.length() >= minLength) {
-                    //Look up the word and if it exists, print it out
                     if (dict.lookupWord(word)) {
                         cout << word << endl;
                     }
                 }
-                //If we are at the edge wrap, else iterate
+                //Iterate until at the edge, then wrap
                 if (row == 0) {
                     row = grid.getRows() - 1;
                 } else {
                     row--;
                 }
-            } //End West
+            } //End search left
 
-            //Search the Northwest Direction
-            row = r, col = c; //Set row and col to current row and col
-            word = ""; //Clear out the word
-                       //Add up to the maxLength of characters
+            //Search up and left (diagonal)
+            row = r, col = c;
+            word = "";
+
             for (l = 0; l <= maxLength; l++) {
-                //Add on the current character
                 word += matrix[row][col];
-                //If the word length is greater or equal to the min length 
+
+                //Look up the word and if it exists, print it out
                 if (word.length() >= minLength) {
-                    //Look up the word and if it exists, print it out
                     if (dict.lookupWord(word)) {
                         cout << word << endl;
                     }
                 }
-                //If we are at the edge wrap, else iterate
+                //Iterate until at the edge, then wrap
                 if (col == 0) {
                     col = grid.getCols() - 1;
                 }
@@ -218,11 +212,10 @@ void findMatches(Dictionary& dict, Grid& grid)
                 } else {
                     row--;
                 }
-            } //End Northwest
-
-        } //End col iterator
-    } //End row interator
-} //End Find Matches     
+            } //End search up and left
+        }
+    }
+}   
 
 int main() {
     Dictionary dict;
