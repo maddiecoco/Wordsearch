@@ -21,6 +21,7 @@ void Dictionary::readFile()
 
 void Dictionary::printVector()
 {
+    // Prints out each of the words in the vector
     for(int i = 0; i < words.size(); i++)
     {
         cout << words[i] << endl;
@@ -56,6 +57,7 @@ void Dictionary::quickSort(int low, int high)
 }
 
 int Dictionary::partition(int low, int high) {
+    // Returns the new pivot index to be used by the quick sort function
     string pivot = words[low];
     int left = low + 1;
     int right = high;
@@ -82,6 +84,7 @@ int Dictionary::partition(int low, int high) {
 
 void Dictionary::heapSort()
 {
+    // Function that utilizes the heap template class to heapSort the word vector
     Heap<string> heap(words);   
     heap.heapsort();
     words = heap.getSortedData();
@@ -89,6 +92,7 @@ void Dictionary::heapSort()
 
 int Dictionary::getSize()
 {
+    // Returns the size of the word vector 
     return words.size();
 }
 

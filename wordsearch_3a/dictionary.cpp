@@ -1,9 +1,10 @@
 #include "dictionary.h"
 #include <fstream>
 
+
 void Dictionary::readFile()
 {
-     // Read file and add words line by line to 'words' vector
+    // Read file and add words line by line to 'words' vector
     string temp;
     ifstream infile;
     infile.open("Dictionary"); // Put path of file in quotes
@@ -19,6 +20,7 @@ void Dictionary::readFile()
 
 void Dictionary::printVector()
 {
+    // Prints out each of the words in the vector
     for(int i = 0; i < words.size(); i++)
     {
         cout << words[i] << endl;
@@ -44,6 +46,7 @@ void Dictionary::selectionSort()
 
 int Dictionary::getSize()
 {
+    // Returns the size of the word vector
     return words.size();
 }
 
@@ -66,5 +69,6 @@ bool Dictionary::lookupWord(string target)
             right = mid - 1;
         }
     }
-    return false; //Word is not in list
+    //If the word is not in the sorted list
+    return false; 
 }

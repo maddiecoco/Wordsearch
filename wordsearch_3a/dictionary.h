@@ -15,7 +15,6 @@ using namespace std;
 class Dictionary {
 
 public:
-    // Function that reads in a file and saves dictionary values to a vector
     void readFile();
     void printVector();
     void selectionSort();
