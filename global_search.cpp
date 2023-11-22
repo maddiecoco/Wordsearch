@@ -1,3 +1,6 @@
+// write a global function to read the grid file and print out all words from the word list found in the grid
+
+
 void search(int algorithm) {
     Dictionary dict;
     // Load words into dict
