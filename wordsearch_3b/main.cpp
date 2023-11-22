@@ -13,6 +13,7 @@
 
 void findMatches(Dictionary& dict, Grid& grid)
 {
+    cout << endl << "List of dictonary words found in wordsearch: " << endl;
     // Max and min lengths of words
     int maxLength = 15, minLength = 4; 
     int l, row, col;
@@ -217,16 +218,47 @@ void findMatches(Dictionary& dict, Grid& grid)
     }
 }   
 
-int main() {
+void search(int algorithm) 
+{
+    // Load words into dict
     Dictionary dict;
-
     dict.readFile();
-    dict.quickSort(0, dict.getSize() - 1);
-    dict.printVector();
 
-    Grid grid("input15");
-    // grid.printGrid();
+    // Load grid from file
+    string fileName;
+    cout << "Grid file name?: ";
+    cin >> fileName;
+    Grid grid(fileName);
+
+    if (algorithm == 1) {
+        dict.selectionSort();
+    }
+    if (algorithm == 2) {
+        cout << "Using quick sort..." << endl << endl;
+        dict.quickSort(0, dict.getSize() - 1);
+    } 
+    else if (algorithm == 3) {
+        dict.heapSort();
+    }
+    else
+    {
+        cout << "Input a number 1-3 for sorting options." << endl;
+    }
+
     findMatches(dict, grid);
+}
+
+int main() {
+
+    cout << "How do you want to sort the dictionary?" << endl;
+    cout << "1: selection sort" << endl;
+    cout << "2: quick sort" << endl;
+    cout << "3: heap sort" << endl;
+    
+    int algorithm;
+    cin >> algorithm;
+
+    search(algorithm);
 
     return 0;
 }

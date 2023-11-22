@@ -1,5 +1,6 @@
 #include "dictionary.h"
 #include <fstream>
+#include "heap.h"
 
 void Dictionary::readFile()
 {
@@ -77,6 +78,13 @@ int Dictionary::partition(int low, int high) {
 
     swap(words[low], words[right]);
     return right;
+}
+
+void Dictionary::heapSort()
+{
+    Heap<string> heap(words);   
+    heap.heapsort();
+    words = heap.getSortedData();
 }
 
 int Dictionary::getSize()

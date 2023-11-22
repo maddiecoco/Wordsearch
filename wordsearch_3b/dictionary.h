@@ -21,6 +21,7 @@ public:
     void selectionSort();
     void quickSort(int low, int high);
     int partition(int low, int high);
+    void heapSort();
     bool lookupWord(string target);
     int getSize();
 private:

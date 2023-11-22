@@ -1,3 +1,6 @@
+#ifndef HEAP_H
+#define HEAP_H
+
 template <typename T>
 class Heap {
     vector<T> data; // The heap is stored as a vector
@@ -62,3 +65,5 @@ public:
         return data;
     }
 };
+
+#endif
